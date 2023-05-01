@@ -1,0 +1,13 @@
+version: '3'
+services:
+  products_service:
+    build:
+      context: ..
+      dockerfile: ./.devcontainer/Dockerfile
+    ports:
+      - "4000:4000"
+    container_name: products_service
+    volumes:
+      - ..:/workspace:cached
+    command: /bin/sh -c "while sleep 1000; do :; done"
+  
