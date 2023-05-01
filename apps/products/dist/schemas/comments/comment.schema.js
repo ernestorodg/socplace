@@ -11,7 +11,7 @@ const mongoose_1 = require("@nestjs/mongoose");
 let Comment = class Comment {
 };
 Comment = __decorate([
-    mongoose_1.Schema({ _id: true, timestamps: true })
+    (0, mongoose_1.Schema)({ _id: true, timestamps: true })
 ], Comment);
 exports.Comment = Comment;
 exports.CommentSchema = mongoose_1.SchemaFactory.createForClass(Comment);

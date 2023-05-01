@@ -15,19 +15,19 @@ const class_validator_1 = require("class-validator");
 class CommentDto {
 }
 __decorate([
-    swagger_1.ApiProperty({
+    (0, swagger_1.ApiProperty)({
         type: String,
         description: 'Comment body'
     }),
-    class_validator_1.IsNotEmpty(),
+    (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
 ], CommentDto.prototype, "body", void 0);
 __decorate([
-    swagger_1.ApiProperty({
+    (0, swagger_1.ApiProperty)({
         type: String,
         description: 'Username that commented'
     }),
-    class_validator_1.IsNotEmpty(),
+    (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
 ], CommentDto.prototype, "username", void 0);
 exports.CommentDto = CommentDto;

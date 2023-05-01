@@ -14,22 +14,22 @@ const swagger_1 = require("@nestjs/swagger");
 class ProductResponse {
 }
 __decorate([
-    swagger_1.ApiProperty(),
+    (0, swagger_1.ApiProperty)(),
     __metadata("design:type", Number)
 ], ProductResponse.prototype, "id", void 0);
 __decorate([
-    swagger_1.ApiProperty({
+    (0, swagger_1.ApiProperty)({
         type: String,
         description: 'Username'
     }),
     __metadata("design:type", String)
 ], ProductResponse.prototype, "title", void 0);
 __decorate([
-    swagger_1.ApiProperty(),
+    (0, swagger_1.ApiProperty)(),
     __metadata("design:type", String)
 ], ProductResponse.prototype, "seller", void 0);
 __decorate([
-    swagger_1.ApiProperty(),
+    (0, swagger_1.ApiProperty)(),
     __metadata("design:type", Date)
 ], ProductResponse.prototype, "created_at", void 0);
 exports.ProductResponse = ProductResponse;

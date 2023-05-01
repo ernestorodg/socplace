@@ -28,10 +28,10 @@ const path = require("path");
 const uuid_1 = require("uuid");
 const path_1 = require("path");
 exports.storage = {
-    storage: multer_1.diskStorage({
+    storage: (0, multer_1.diskStorage)({
         destination: './uploads/products-images',
         filename: (req, file, cb) => {
-            const filename = path.parse(file.originalname).name.replace(/\s/g, '') + uuid_1.v4();
+            const filename = path.parse(file.originalname).name.replace(/\s/g, '') + (0, uuid_1.v4)();
             const extension = path.parse(file.originalname).ext;
             cb(null, `${filename}${extension}`);
         }
@@ -53,7 +53,7 @@ let ProductsController = class ProductsController {
         return this.productsService.filter(productDto);
     }
     uploadFile(file) {
-        return rxjs_1.of(file);
+        return (0, rxjs_1.of)(file);
     }
     async create(productDto) {
         return this.productsService.create(productDto);
@@ -74,94 +74,94 @@ let ProductsController = class ProductsController {
         this.productsService.deleteById(id);
     }
     findImage(imagename, res) {
-        return rxjs_1.of(res.sendFile(path_1.join(process.cwd(), 'uploads/products-images/' + imagename)));
+        return (0, rxjs_1.of)(res.sendFile((0, path_1.join)(process.cwd(), 'uploads/products-images/' + imagename)));
     }
 };
 __decorate([
-    common_1.Get(),
+    (0, common_1.Get)(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], ProductsController.prototype, "findAll", null);
 __decorate([
-    swagger_1.ApiOkResponse({
+    (0, swagger_1.ApiOkResponse)({
         type: product_response_1.ProductResponse
     }),
-    common_1.Post('filter'),
-    __param(0, common_1.Body()),
+    (0, common_1.Post)('filter'),
+    __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [product_dto_1.ProductDto]),
     __metadata("design:returntype", Promise)
 ], ProductsController.prototype, "filter", null);
 __decorate([
-    swagger_1.ApiOkResponse({
+    (0, swagger_1.ApiOkResponse)({
         type: product_response_1.ProductResponse
     }),
-    common_1.Post(':t'),
-    __param(0, common_1.Param('t')),
+    (0, common_1.Post)(':t'),
+    __param(0, (0, common_1.Param)('t')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], ProductsController.prototype, "lookForProductTitle", null);
 __decorate([
-    common_1.Post('image/upload'),
-    common_2.UseInterceptors(platform_express_1.FileInterceptor('file', exports.storage)),
-    __param(0, common_2.UploadedFile()),
+    (0, common_1.Post)('image/upload'),
+    (0, common_2.UseInterceptors)((0, platform_express_1.FileInterceptor)('file', exports.storage)),
+    __param(0, (0, common_2.UploadedFile)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], ProductsController.prototype, "uploadFile", null);
 __decorate([
-    common_1.Post(),
-    __param(0, common_1.Body()),
+    (0, common_1.Post)(),
+    __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [product_dto_1.ProductDto]),
     __metadata("design:returntype", Promise)
 ], ProductsController.prototype, "create", null);
 __decorate([
-    common_1.Post('comment/:id'),
-    __param(0, common_1.Param('id')),
-    __param(1, common_1.Body()),
+    (0, common_1.Post)('comment/:id'),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, comment_dto_1.CommentDto]),
     __metadata("design:returntype", Promise)
 ], ProductsController.prototype, "createComment", null);
 __decorate([
-    swagger_1.ApiOkResponse({
+    (0, swagger_1.ApiOkResponse)({
         type: product_response_1.ProductResponse
     }),
-    common_1.Get(':id'),
-    __param(0, common_1.Param('id')),
+    (0, common_1.Get)(':id'),
+    __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], ProductsController.prototype, "show", null);
 __decorate([
-    common_1.Put(':id'),
-    __param(0, common_1.Param('id')),
-    __param(1, common_1.Body()),
+    (0, common_1.Put)(':id'),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, product_schema_1.Product]),
     __metadata("design:returntype", Promise)
 ], ProductsController.prototype, "update", null);
 __decorate([
-    common_1.Delete(':id'),
-    common_1.HttpCode(204),
-    __param(0, common_1.Param('id')),
+    (0, common_1.Delete)(':id'),
+    (0, common_1.HttpCode)(204),
+    __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], ProductsController.prototype, "destroy", null);
 __decorate([
-    common_1.Get('image/:imagename'),
-    __param(0, common_1.Param('imagename')),
-    __param(1, common_1.Res()),
+    (0, common_1.Get)('image/:imagename'),
+    __param(0, (0, common_1.Param)('imagename')),
+    __param(1, (0, common_1.Res)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object]),
     __metadata("design:returntype", void 0)
 ], ProductsController.prototype, "findImage", null);
 ProductsController = __decorate([
-    common_1.Controller('products'),
+    (0, common_1.Controller)('products'),
     __metadata("design:paramtypes", [product_service_1.ProductsService])
 ], ProductsController);
 exports.ProductsController = ProductsController;
