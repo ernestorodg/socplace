@@ -8,7 +8,7 @@ async function bootstrap() {
   app.useGlobalFilters(new EntityNotFoundExceptionFilter());
   
   const options = new DocumentBuilder()
-    .setTitle('Yovend Products-Service')
+    .setTitle('Socplace Products-Service')
     .setDescription('API Documentation')
     .build();
   // app.enableCors();

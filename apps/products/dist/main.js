@@ -8,7 +8,7 @@ async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule, { cors: true });
     app.useGlobalFilters(new entity_not_found_1.EntityNotFoundExceptionFilter());
     const options = new swagger_1.DocumentBuilder()
-        .setTitle('Yovend Products-Service')
+        .setTitle('Socplace Products-Service')
         .setDescription('API Documentation')
         .build();
     const document = swagger_1.SwaggerModule.createDocument(app, options);
