@@ -25,7 +25,6 @@ function Seller(props) {
         {username: filters.seller}
   });
 
-  console.log(loading_user, error_user, refetch_user)
 
   // const image_src = "http://localhost:4000/products/image/" + user.image;
 
@@ -50,7 +49,6 @@ function Seller(props) {
         filters
   });
 
-  console.log(loading, error, refetch)
 
 
   return (

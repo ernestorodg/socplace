@@ -6,6 +6,8 @@ export default function Conversation({ conversation, currentUser }) {
   const [user, setUser] = useState(null);
   //const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   //console.log(PF);
+  console.log('conversation: ',conversation)
+  console.log('currentUser: ',currentUser)
 
 
   useEffect(() => {
@@ -30,12 +32,7 @@ export default function Conversation({ conversation, currentUser }) {
     <div className="conversation">
       <img
         className="conversationImg"
-        // src={
-        //   user?.profilePicture
-        //     ? PF + user.profilePicture
-        //     : PF + "person/noAvatar.png"
-        // }
-        src = "https://iotorrino.com.br/wp-content/uploads/2021/04/no-avatar.png"
+        src = {user?.image ? user?.image : "https://iotorrino.com.br/wp-content/uploads/2021/04/no-avatar.png"}
         alt=""
       />
       <span className="conversationName">{user?.username}</span>

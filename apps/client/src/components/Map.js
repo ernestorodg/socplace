@@ -8,8 +8,6 @@ const mapStyles = {
 
 export function MapContainer (props) {
   const { posts } = props;
-  console.log("posts no mapa: ")
-  console.log(posts)
 
 
   // const state = {
@@ -99,8 +97,6 @@ export function MapContainer (props) {
               onClick={() => {
                 setSelected(post);
                 setVisibility(true);
-                console.log("Foi selecionado");
-                console.log(selected)
               }}
             />
             )))}
@@ -115,8 +111,6 @@ export function MapContainer (props) {
                 }}
                 visible={visibility}
                 onClose={() => {
-                  console.log(selected)
-                  console.log("fechou");
                   setSelected({});
                   setVisibility(false);
                 }}
@@ -135,6 +129,6 @@ export function MapContainer (props) {
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyCpM964ClNLYCNd2-4dqLF7h7B2s7ALuOY'
+  apiKey: 'AIzaSyD57hUMgVSO2lTjQ5-71UmZSGEDK8nRfSE'
 })(MapContainer);
 

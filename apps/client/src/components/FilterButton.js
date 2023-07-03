@@ -22,7 +22,6 @@ function FilterButton(props) {
 
     const updateCategoryCallback = (e, {value}) => {
         // e.persist();
-        // console.log(e.target.textContent);
         values.category = value
     };
 

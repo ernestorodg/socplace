@@ -26,7 +26,6 @@ function RegisterShop(props) {
   const panTo = React.useCallback(({ lat, lng }) => {
     latitude = lat;
     longitude = lng;
-    console.log("create! ", latitude, " e ", longitude)
 
   }, []);
 
@@ -50,7 +49,6 @@ function RegisterShop(props) {
     const formData = new FormData();
 
     if (filesToUpload.length > 0) {
-      console.log(filesToUpload[0])
       formData.append('file', filesToUpload[0])
       fetch(
         process.env.REACT_APP_PRODUCTS_API_URL + '/products/image/upload',
@@ -62,11 +60,8 @@ function RegisterShop(props) {
       .then((response) => response.json())
       .then((result) => {
         values.image = result.filename
-        console.log(values)
-        console.log('Success:', result);
         values.latitude = latitude;
         values.longitude = longitude;
-        console.log("create! ", values.latitude, " e ", values.longitude)
 
         createProduct();
       })
@@ -77,7 +72,6 @@ function RegisterShop(props) {
     else {
       values.latitude = latitude;
       values.longitude = longitude;
-      console.log("create! ", values.latitude, " e ", values.longitude)
       try {
         createProduct();
       }catch(e) {

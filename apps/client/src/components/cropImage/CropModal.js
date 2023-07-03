@@ -4,12 +4,14 @@ import StyledCrop from './cropImage';
 
 
 function CropImageModal(props) {
-    const { cropModalState, droppedImage, setCroppedImage } = props
+    const { cropModalState, droppedImage, setCroppedImage, triggerCropModalState } = props
     const [modalOpen, setModalOpen] = useState(false);
 
     useEffect(() => {
         if (cropModalState === true) {
             setModalOpen(true)
+        } else {
+            setModalOpen(false)
         }
     }, [cropModalState])
 
@@ -24,7 +26,9 @@ function CropImageModal(props) {
             <Modal.Header>Crop your image</Modal.Header>
             <Modal.Content>
                 {/* <StyledCrop /> */}
-                {droppedImage && <StyledCrop image={droppedImage} setCroppedImage={setCroppedImage}/>}
+                {droppedImage &&  
+                    <StyledCrop image={droppedImage} setCroppedImage={setCroppedImage} setModalOpen={setModalOpen}/>
+                }
             </Modal.Content>
         </Modal>
     </div>

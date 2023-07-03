@@ -2,12 +2,9 @@ import { Button, Form } from 'semantic-ui-react';
 import React from 'react';
 
 function FormUserDetails(props) {
-  console.log('entrou em FormUser:', props)
   const errors = {};
 
   const nextStep = e => {
-    console.log(props)
-    console.log('step: ', props.step)
     e.preventDefault();
     props.nextStep();
   };

@@ -13,7 +13,6 @@ let latitude = 0;
 let longitude = 0;
 
 function FormShopDetails(props) {
-  console.log('entrou em FormShop:', props)
   const context = useContext(AuthContext);
   const [errors, setErrors] = useState({});
   const [cropModalState, triggerCropModalState] = useState(false);
@@ -23,8 +22,6 @@ function FormShopDetails(props) {
   const { values } = props;
 
   const back = e => {
-    console.log(props)
-    console.log('step: ', props.step)
     e.preventDefault();
     props.prevStep();
   };
@@ -49,8 +46,6 @@ function FormShopDetails(props) {
     variables: values
   });
 
-  console.log(toSendValues, loading)
-
   function registerUser() {
     addUser();
   }
@@ -59,13 +54,10 @@ function FormShopDetails(props) {
   const panTo = React.useCallback(({ lat, lng }) => {
     latitude = lat;
     longitude = lng;
-    console.log("create! ", latitude, " e ", longitude)
-
   }, []);
   
   async function createShopCallback() {
     const formData = new FormData();
-    console.log('values:', values)
     
     if (croppedImage !== null) {
       const file = await fetch(croppedImage)
@@ -83,8 +75,6 @@ function FormShopDetails(props) {
         values.image = data.url
         values.latitude = latitude;
         values.longitude = longitude;
-        console.log(values)
-        console.log('Success:', data);
         registerUser();
       })
       .catch(err => console.log(err))
@@ -92,7 +82,6 @@ function FormShopDetails(props) {
     else {
       values.latitude = latitude;
       values.longitude = longitude;
-      console.log("create! ", values.latitude, " e ", values.longitude)
       try {
         registerUser();
       }catch(e) {
@@ -178,11 +167,12 @@ function FormShopDetails(props) {
           </Form.Field>
           
           <p>
-            {droppedImage && 
+            {droppedImage && croppedImage===null &&
               <CropModal 
                 cropModalState={cropModalState} 
                 droppedImage={droppedImage} 
                 setCroppedImage={setCroppedImage}
+                triggerCropModalState={triggerCropModalState}
               />}
           </p>
 

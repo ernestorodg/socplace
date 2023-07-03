@@ -22,8 +22,6 @@ export default function Chat({ onlineUsers, currentId, setCurrentChat }) {
 
   const handleClick = async (user) => {
     try {
-      console.log(currentId);
-      console.log(user.id);
       const res = await axios.get(
         process.env.REACT_APP_MESSAGES_API_URL + `/api/conversations/find/${currentId}/${user.id}`
       );

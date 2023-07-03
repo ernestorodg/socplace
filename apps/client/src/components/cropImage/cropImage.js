@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState, useCallback, useEffect } from 'react'
 import Cropper from 'react-easy-crop'
 import Slider from '@material-ui/core/Slider'
 import Button from '@material-ui/core/Button'
@@ -8,11 +8,14 @@ import getCroppedImg from '../../util/cropImage'
 import { styles } from './styles'
 
 
-function CropImage({ classes, image, setCroppedImage }) {
+function CropImage(props) {
+  const { classes, image, setCroppedImage, setModalOpen } = props
+
   const [crop, setCrop] = useState({ x: 0, y: 0 })
   const [rotation, setRotation] = useState(0)
   const [zoom, setZoom] = useState(1)
   const [croppedAreaPixels, setCroppedAreaPixels] = useState(null)
+  const [isImageCropped, changeIsImageCropped] = useState(false)
 
   const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => {
     setCroppedAreaPixels(croppedAreaPixels)
@@ -24,10 +27,11 @@ function CropImage({ classes, image, setCroppedImage }) {
         image,
         croppedAreaPixels,
         rotation
-      )
+      );
       // const newImage = await createImage(croppedImage)
       console.log('donee', croppedImage)
       setCroppedImage(croppedImage)
+      setModalOpen(false)
     } catch (e) {
       console.error(e)
     }
@@ -93,7 +97,7 @@ function CropImage({ classes, image, setCroppedImage }) {
           color="primary"
           classes={{ root: classes.cropButton }}
         >
-          Show Result
+          Crop
         </Button>
       </div>
       {/* <ImgDialog img={croppedImage} onClose={onClose} /> */}

@@ -20,7 +20,6 @@ function PostForm(props) {
 
   const updateCategoryCallback = (e, {value}) => {
     // e.persist();
-    // console.log(e.target.textContent);
     values.category = value
   };
 
@@ -63,8 +62,6 @@ function PostForm(props) {
       .then(resp => resp.json())
       .then(data => {
         values.image = data.url
-        console.log(values)
-        console.log('Success:', data);
         createProduct();
       })
       .catch(err => console.log(err))

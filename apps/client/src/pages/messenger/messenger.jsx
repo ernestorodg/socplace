@@ -74,9 +74,7 @@ function Messenger() {
       try {
         //console.log(user.id)
         const res = await axios.get(process.env.REACT_APP_MESSAGES_API_URL + "/api/conversations/" + user.id);
-        console.log(res.data) // array de objetos de conversas, senda que cada umcontém um outro array "members" com os id's dos usuários
         setConversations(res.data);
-        console.log(res.data)
         return res.data
       } catch (err) {
         console.log(err);
@@ -84,8 +82,6 @@ function Messenger() {
       
     };
     getConversations().then( (response) =>{
-      console.log(response.find(r => r.members[1] === ChosenChat.sellerId))
-      console.log(conversations);
       setCurrentChat(response.find(r => r.members[1] === ChosenChat.sellerId))
     }
 
@@ -93,10 +89,7 @@ function Messenger() {
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    const getMessages = async () => {
-      
-      console.log(conversations)
-      console.log(currentChat)
+    const getMessages = async () => {      
       try {
         const res = await axios.get(process.env.REACT_APP_MESSAGES_API_URL + "/api/messages/" + currentChat?._id);
         setMessages(res.data);
@@ -140,8 +133,6 @@ function Messenger() {
     } catch (err) {
       console.log(err);
     }
-
-
   };
 
   const scrollToBottom = () => {
@@ -155,8 +146,6 @@ function Messenger() {
       scrollToBottom();
     }
   }, [messages]);
-
-
 
   return (
 
