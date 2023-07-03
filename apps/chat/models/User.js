@@ -6,6 +6,10 @@ const UserSchema = new mongoose.Schema(
     password: String,
     email: String,
     createdAt: String,
+    savedProducts: [{}],
+    latitude: Number,
+    longitude: Number,
+    image: String
   }
 );
 

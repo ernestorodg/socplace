@@ -29,7 +29,6 @@ function generateToken(user) {
 module.exports = {
   Query: {
     async getUserData(_, { username }) {
-      console.log('User: ', username)
       const user = await User.findOne({ username });
 
       if (!user) {

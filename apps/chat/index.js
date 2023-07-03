@@ -18,10 +18,12 @@ const http = require("http");
 const server = http.createServer(app); //Create server with express
 var cors = require('cors')
 const io = require('socket.io')(server, {
-  allowRequest: (req, callback) => {
-    const noOriginHeader = req.headers.origin === undefined;
-    callback(null, noOriginHeader);
-  }
+  cors: {
+  },  
+  // allowRequest: (req, callback) => {
+  //   const noOriginHeader = req.headers.origin === undefined;
+  //   callback(null, noOriginHeader);
+  // }
 });
 
 dotenv.config();
@@ -117,13 +119,18 @@ io.on("connection", (socket) => {
   //send and get message
   socket.on("sendMessage", ({ senderId, receiverId, text }) => {
     const user = getUser(receiverId);
-    
+    console.log('sender id:', senderId)
+    console.log('user:', user)
     //io.to(socket.id).emit("getMessage", {
-    io.to(user.socketId).emit("getMessage", {
-    senderId,
-      text,
-    });
-    console.log(text);
+    try {
+      io.to(user.socketId).emit("getMessage", {
+        senderId,
+          text,
+        });
+    } catch (err) {
+      console.log(text);
+    }
+
   });
 
   //when disconnect

@@ -90,19 +90,15 @@ module.exports = {
     async createProduct(_, args, context) {
       // const product = await context.dataSources.productsAPI.createProduct(body);
       const user = checkAuth(context);
-      console.log(user)
 
-      for (let key in args) {
-        // if (args.key.trim() === '')
-        //   throw new Error(`Product's ${key} must not be empty`)
-          console.log(typeof(args[key]))
-      }
+      // for (let key in args) {
+      //   // if (args.key.trim() === '')
+      //   //   throw new Error(`Product's ${key} must not be empty`)
+      // }
 
       try {
         const price = parseFloat(args.price)
-        console.log(price)
         const product = await context.dataSources.productsAPI.createProduct(user, args, price);
-        console.log("Post created")
         context.pubsub.publish('NEW_PRODUCT', {
           newProduct: product
         });
