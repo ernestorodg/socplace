@@ -31,6 +31,13 @@ function MenuBar() {
             as={Link}
             to="/accounts/announce"
           />
+        <Menu.Item
+            name="messages"
+            active={activeItem === 'messages'}
+            onClick={handleItemClick}
+            as={Link}
+            to="/messenger"
+          />
 
         <Menu.Item name="logout" onClick={logout} />
 

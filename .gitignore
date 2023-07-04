@@ -1,5 +1,7 @@
 .turbo
 apps/*/node_modules/
+apps/*/.env
 node_modules
 node_modules/
 .env
+todo

@@ -1,5 +1,5 @@
+require('dotenv').config()
 module.exports = {
-  MONGODB:
-    'mongodb+srv://admin:OD957NB6mLK3X95w@cluster0.mu5pw.mongodb.net/GRAPHQL?retryWrites=true&w=majority',
+  MONGODB: process.env.MONGO_DB,
   SECRET_KEY: 'some very secret key'
 };

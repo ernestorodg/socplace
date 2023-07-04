@@ -9,7 +9,6 @@ const mapStyles = {
 export function MapContainer (props) {
   const { posts } = props;
 
-
   // const state = {
   //   activeMarker: {},
   //   selectedPlace: {},
@@ -129,6 +128,6 @@ export function MapContainer (props) {
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyD57hUMgVSO2lTjQ5-71UmZSGEDK8nRfSE'
+  apiKey: process.env.REACT_APP_GOOGLE_MAP_API_KEY
 })(MapContainer);
 
