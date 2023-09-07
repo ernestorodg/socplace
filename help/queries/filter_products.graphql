@@ -1,0 +1,17 @@
+query {
+  filterProduct {
+    _id
+    title
+    seller
+    description
+    category
+    price
+    image
+    latitude
+    longitude
+    comments {
+      username
+      body
+    }
+  }
+}

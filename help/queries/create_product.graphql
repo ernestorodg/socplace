@@ -1,0 +1,15 @@
+mutation createProduct{
+  createProduct (
+    title: "brigadeiro"
+    description: "brigadeiro"
+    category: "Brigadeiro"
+    price: "10"
+    image: "http://res.cloudinary.com/drhckdsxw/image/upload/v1644965843/derdknnygj6vbjwdipj5.jpg"
+  ){
+		title
+    description
+    category
+    price
+    image
+  }
+}

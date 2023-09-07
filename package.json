@@ -5,6 +5,7 @@
     },
     "scripts": {
         "dev": "turbo run dev",
+        "test": "turbo run test",
         "build": "turbo run build"
     },
     "workspaces": [
