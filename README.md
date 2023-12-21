@@ -1,4 +1,4 @@
-# Socplace
+# Social Place
 
 ## Resumo
 
@@ -21,4 +21,4 @@ Além disso, o projeto usa o Docker Compose para inicializar um banco de dados M
 
 Para o resto das keys necessárias, use os arquivos `.env.example` para criar `.env` pessoais.
 
-![](https://github.com/ernestorodg/socplace/img/home_logado.jpg?raw=true)
+![home_logado](https://github.com/ernestorodg/socplace/assets/61739079/aafd4c74-86d5-4ab5-9405-ac6b7ee80f07)
